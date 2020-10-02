@@ -55,7 +55,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 let mapleader=" "
 map S :w<CR>
 map Q :q<CR>
-map R :source ~/.vimrc<CR>
+map R :source ~/.vim/vimrc<CR>
 
 map xd :set splitright<CR>:vsplit<CR>
 map xa :set nosplitright<CR>:vsplit<CR>
@@ -81,7 +81,7 @@ map <C-e> <End>
 inoremap <C-a> <Home>
 inoremap <C-e> <End>
 
-map rc :e ~/.vimrc<CR>
+map rc :e ~/.vim/vimrc<CR>
 
 map r :call CompileRunGcc()<CR>
 func! CompileRunGcc()
@@ -123,6 +123,15 @@ source ~/.config/nvim/md-snippets.vim
 call plug#begin('~/.vim/plugged')
 Plug 'connorholyday/vim-snazzy'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'honza/vim-snippets'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+""Plug 'liuchengxu/eleline.vim'
+Plug 'ojroques/vim-scrollstatus'
+Plug 'dracula/vim'
+Plug 'mhinz/vim-startify'
+Plug 'yianwillis/vimcdoc'
+Plug 'junegunn/vim-slash'
 call plug#end()
 
 "===
@@ -218,3 +227,21 @@ nmap <LEADER>w :CocCommand explorer<CR>
 "=== Theme
 "==="
 colorscheme snazzy
+
+
+"===
+"=== Airline
+"==="
+let g:airline_theme='dracula'
+let g:airline_powerline_fonts = 0
+let g:airline_section_x = '%{ScrollStatus()}'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#formatter = 'default'
+"===
+"=== eleine
+"==="
+""let g:eleline_powerline_fonts = 1
+""let g:scrollstatus_size = 12
+""let g:eleline_section_x = '%{ScrollStatus()}'
